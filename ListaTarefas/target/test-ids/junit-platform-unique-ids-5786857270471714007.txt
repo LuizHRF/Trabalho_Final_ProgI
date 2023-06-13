@@ -1,0 +1,1 @@
+[engine:junit-jupiter]/[class:br.edu.uffs.ListaTarefas.ListaDeTarefasApplicationTests]/[method:contextLoads()]
