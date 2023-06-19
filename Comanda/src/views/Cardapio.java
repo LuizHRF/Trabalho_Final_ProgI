@@ -42,13 +42,9 @@ public class Cardapio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tblCardapio.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 15)); // NOI18N
         tblCardapio.setModel(tblCardapio.getModel());
-        tblCardapio.setIntercellSpacing(new java.awt.Dimension(0, 3));
         jScrollPane1.setViewportView(tblCardapio);
 
-        jButton1.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Adicionar Item");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
