@@ -35,23 +35,16 @@ public class Comandas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPedidos = new javax.swing.JTable();
         btnNovoPedido1 = new javax.swing.JButton();
-        btnLimparPedidos = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        spMesa = new javax.swing.JSpinner();
+        btnLimparPedidos1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tblPedidos.setModel(modelPedidos);
         jScrollPane1.setViewportView(tblPedidos);
-        if (tblPedidos.getColumnModel().getColumnCount() > 0) {
-            tblPedidos.getColumnModel().getColumn(0).setHeaderValue("Mesa");
-            tblPedidos.getColumnModel().getColumn(1).setHeaderValue("Atendente");
-            tblPedidos.getColumnModel().getColumn(2).setHeaderValue("Entrada");
-            tblPedidos.getColumnModel().getColumn(3).setHeaderValue("Principal");
-            tblPedidos.getColumnModel().getColumn(4).setHeaderValue("Sobremesa");
-            tblPedidos.getColumnModel().getColumn(5).setHeaderValue("Bebida");
-            tblPedidos.getColumnModel().getColumn(6).setHeaderValue("Valor Total");
-            tblPedidos.getColumnModel().getColumn(7).setHeaderValue("Situação");
-        }
 
         btnNovoPedido1.setText("Novo pedido");
         btnNovoPedido1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +53,12 @@ public class Comandas extends javax.swing.JFrame {
             }
         });
 
-        btnLimparPedidos.setText("Limpar");
+        btnAtualizar.setText("Atualizar Mesa");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setText("<");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +67,15 @@ public class Comandas extends javax.swing.JFrame {
             }
         });
 
+        btnLimparPedidos1.setText("Limpar");
+        btnLimparPedidos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparPedidos1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Mesa");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -76,14 +83,22 @@ public class Comandas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnVoltar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnLimparPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNovoPedido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnVoltar)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56)
+                                .addComponent(btnLimparPedidos1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnNovoPedido1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -95,8 +110,11 @@ public class Comandas extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimparPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(btnNovoPedido1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(btnNovoPedido1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(btnLimparPedidos1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(spMesa))
                 .addContainerGap())
         );
 
@@ -114,6 +132,17 @@ public class Comandas extends javax.swing.JFrame {
         this.dispose();
         p.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        int mesa = Integer.parseInt(spMesa.getValue().toString());
+        ModelPedido.atendido(mesa);
+        tblPedidos.updateUI();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void btnLimparPedidos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparPedidos1ActionPerformed
+        ModelPedido.limparPedidos();
+        tblPedidos.updateUI();
+    }//GEN-LAST:event_btnLimparPedidos1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,10 +180,13 @@ public class Comandas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLimparPedidos;
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnLimparPedidos1;
     private javax.swing.JButton btnNovoPedido1;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner spMesa;
     private javax.swing.JTable tblPedidos;
     // End of variables declaration//GEN-END:variables
 

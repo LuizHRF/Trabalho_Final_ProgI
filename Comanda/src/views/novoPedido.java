@@ -1,6 +1,8 @@
 package views;
 
+import entities.Pedido;
 import javax.swing.DefaultComboBoxModel;
+import models.ModelPedido;
 import models.ModelProduto;
 
 /*
@@ -212,7 +214,21 @@ public class novoPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_edtAtendenteActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-
+        double valor = ModelProduto.getValor((String)cbEntrada.getSelectedItem()) + ModelProduto.getValor((String)cbPrincipal.getSelectedItem()) + ModelProduto.getValor((String)cbSobremesa.getSelectedItem()) + ModelProduto.getValor((String)cbBebida.getSelectedItem()) ;
+        
+        Pedido p = new Pedido(
+                edtAtendente.getText(),
+                Integer.parseInt(spMesa.getValue().toString()),
+                (String)cbEntrada.getSelectedItem(),
+                (String)cbPrincipal.getSelectedItem(),
+                (String)cbSobremesa.getSelectedItem(),
+                (String)cbBebida.getSelectedItem(),
+                false,
+                valor
+        );
+        ModelPedido.getPedidos().add(p);
+        this.btnVoltarActionPerformed(evt);
+        
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void cbPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPrincipalActionPerformed
