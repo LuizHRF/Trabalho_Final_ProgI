@@ -1,6 +1,7 @@
 package views;
 
 import entities.Produto;
+import javax.swing.JOptionPane;
 import models.ModelProduto;
 
 /*
@@ -42,6 +43,7 @@ public class NovoItem extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnVoltar.setFont(new java.awt.Font("Jamrul", 0, 18)); // NOI18N
         btnVoltar.setText("<");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,27 +51,37 @@ public class NovoItem extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Nome");
         jLabel1.setMaximumSize(new java.awt.Dimension(12, 12));
         jLabel1.setMinimumSize(new java.awt.Dimension(15, 15));
 
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Tipo");
         jLabel2.setMaximumSize(new java.awt.Dimension(12, 12));
         jLabel2.setMinimumSize(new java.awt.Dimension(15, 15));
 
-        jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Valor");
         jLabel3.setMaximumSize(new java.awt.Dimension(12, 12));
         jLabel3.setMinimumSize(new java.awt.Dimension(15, 15));
 
+        edtNome.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 18)); // NOI18N
+        edtNome.setForeground(new java.awt.Color(51, 51, 51));
         edtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edtNomeActionPerformed(evt);
             }
         });
 
+        edtValor.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 18)); // NOI18N
+        edtValor.setForeground(new java.awt.Color(51, 51, 51));
+
+        btnSalvar.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 18)); // NOI18N
+        btnSalvar.setForeground(new java.awt.Color(51, 51, 51));
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +89,8 @@ public class NovoItem extends javax.swing.JFrame {
             }
         });
 
+        cbTipo.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 18)); // NOI18N
+        cbTipo.setForeground(new java.awt.Color(51, 51, 51));
         cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrada", "Prato principal", "Sobremesa", "Bebida" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -149,12 +163,14 @@ public class NovoItem extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
     
+        try{
        Produto p = new Produto(
                edtNome.getText(), 
                Double.parseDouble(edtValor.getText()),
                cbTipo.getSelectedIndex()
-       );
-       ModelProduto.getProdutos().add(p);
+            );
+        ModelProduto.getProdutos().add(p);
+           
        
        switch (cbTipo.getSelectedIndex()){
            case 0:
@@ -173,8 +189,11 @@ public class NovoItem extends javax.swing.JFrame {
                break;
        }
        
-       
        this.btnVoltarActionPerformed(evt);
+       
+       }catch( NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Existem campos vazios ou um valor inválido foi inserido!");
+        }    
        
         
     }//GEN-LAST:event_btnSalvarActionPerformed

@@ -57,24 +57,4 @@ public class ModelPedido extends AbstractTableModel {
         }
         return null;
     }
-    
-    public static ArrayList<Pedido> getPedidos() {
-        return pedidos;
-    }
-    
-    public static void atendido(int mesa) {
-        for (int i = 0; i < pedidos.size(); i++) {
-            if ( pedidos.get(i).getMesa() == mesa) {
-                pedidos.get(i).setSituacao(true);
-            }
-        }
-    }
-    
-    public static void limparPedidos() {
-        for (int i = 0; i < pedidos.size(); i++) {
-            if ( pedidos.get(i).isSituacao() == true) {
-                pedidos.remove(i);
-            }
-        }
-    } 
 }

@@ -17,7 +17,7 @@ public class ModelProduto extends AbstractTableModel {
 
     static ArrayList<Produto> produtos = new ArrayList();
     
-    String[] colunas = { "Tipo", "Nome", "Valor"};
+    String[] colunas = { "Tipo", "Nome", "Valor (R$)"};
     
     
     
@@ -49,15 +49,6 @@ public class ModelProduto extends AbstractTableModel {
                 break;
         }
         return null;
-    }
-    
-    public static double getValor(String produto) {
-        for (int i = 0; i < produtos.size(); i++) {
-            if (produtos.get(i).getNome().equals(produto)) {
-                return produtos.get(i).getValor();
-            }
-        }
-        return 0;
     }
 
     public static ArrayList<Produto> getProdutos() {
