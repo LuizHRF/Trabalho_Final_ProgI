@@ -26,13 +26,8 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnCardapio" alignment="0" pref="273" max="32767" attributes="0"/>
-                  <Component id="btnComanda" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="btnCardapio" pref="258" max="32767" attributes="0"/>
+                  <Component id="btnComanda" alignment="0" pref="258" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -41,9 +36,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" pref="100" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="112" max="32767" attributes="0"/>
               <Component id="btnComanda" min="-2" pref="74" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnCardapio" min="-2" pref="74" max="-2" attributes="0"/>
@@ -55,9 +48,6 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnCardapio">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans CJK HK" size="18" style="0"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Edi&#xe7;&#xe3;o do card&#xe1;pio"/>
       </Properties>
       <Events>
@@ -66,27 +56,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnComanda">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans CJK HK" size="18" style="0"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Comandas"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnComandaActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans CJK HK" size="44" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Bem Vindo!"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-            <EmptyBorder/>
-          </Border>
-        </Property>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
