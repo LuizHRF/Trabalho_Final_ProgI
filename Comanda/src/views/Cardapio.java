@@ -37,21 +37,26 @@ public class Cardapio extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCardapio = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnAddItem = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tblCardapio.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 15)); // NOI18N
+        tblCardapio.setForeground(new java.awt.Color(51, 51, 51));
         tblCardapio.setModel(tblCardapio.getModel());
         jScrollPane1.setViewportView(tblCardapio);
 
-        jButton1.setText("Adicionar Item");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddItem.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 15)); // NOI18N
+        btnAddItem.setForeground(new java.awt.Color(51, 51, 51));
+        btnAddItem.setText("Adicionar Item");
+        btnAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddItemActionPerformed(evt);
             }
         });
 
+        btnVoltar.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
         btnVoltar.setText("<");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +71,7 @@ public class Cardapio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addComponent(btnAddItem, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnVoltar)
@@ -81,18 +86,18 @@ public class Cardapio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAddItem)
                 .addGap(12, 12, 12))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
         NovoItem i = new NovoItem();
         this.dispose();
         i.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddItemActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         painelInicial p = new painelInicial();
@@ -136,8 +141,8 @@ public class Cardapio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddItem;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblCardapio;
     // End of variables declaration//GEN-END:variables

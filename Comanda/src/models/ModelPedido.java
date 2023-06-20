@@ -16,7 +16,7 @@ public class ModelPedido extends AbstractTableModel {
 
     static ArrayList<Pedido> pedidos = new ArrayList();
     
-    String[] colunas = {"Mesa", "Atendente", "Entrada", "Principal", "Sobremesa", "Bebida", "Valor", "Situação"};
+    String[] colunas = {"Mesa", "Atendente", "Entrada", "Principal", "Sobremesa", "Bebida", "Valor (R$)", "Situação"};
     
     @Override
     public int getRowCount() {
@@ -51,7 +51,7 @@ public class ModelPedido extends AbstractTableModel {
             case 6:
                 return pedidos.get(rowIndex).getValor();
             case 7:
-                return pedidos.get(rowIndex).isSituacao();
+                return pedidos.get(rowIndex).getSituacao();
             default:
                 break;
         }

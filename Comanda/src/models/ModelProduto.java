@@ -17,13 +17,13 @@ public class ModelProduto extends AbstractTableModel {
 
     static ArrayList<Produto> produtos = new ArrayList();
     
-    String[] colunas = { "Tipo", "Nome", "Valor"};
+    String[] colunas = { "Tipo", "Nome", "Valor (R$)"};
     
     
     
     @Override
     public int getRowCount() {
-        return produtos.size();
+        return produtos.size()-4;
     }
 
     @Override

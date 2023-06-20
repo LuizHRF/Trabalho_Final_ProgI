@@ -36,6 +36,7 @@ public class painelInicial extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("TELA INICIAL"); // NOI18N
 
         btnCardapio.setFont(new java.awt.Font("Noto Sans CJK HK", 0, 18)); // NOI18N
         btnCardapio.setForeground(new java.awt.Color(51, 51, 51));

@@ -27,6 +27,14 @@ public class Pedido {
         this.valor = valor;
     }
     
+    public String getSituacao(){
+        if(this.situacao){
+            return "Atendido";
+        }else{
+            return "Aguardando";
+        }
+    }
+    
     public String getAtendente() {
         return atendente;
     }
