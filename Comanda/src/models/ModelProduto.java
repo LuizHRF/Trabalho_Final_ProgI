@@ -6,7 +6,6 @@ package models;
 
 import entities.Produto;
 import java.util.ArrayList;
-import javax.swing.event.EventListenerList;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -23,7 +22,7 @@ public class ModelProduto extends AbstractTableModel {
     
     @Override
     public int getRowCount() {
-        return produtos.size()-4;
+        return produtos.size();
     }
 
     @Override
@@ -66,10 +65,6 @@ public class ModelProduto extends AbstractTableModel {
 
     public String[] getColunas() {
         return colunas;
-    }
-
-    public EventListenerList getListenerList() {
-        return listenerList;
     }
     
 }

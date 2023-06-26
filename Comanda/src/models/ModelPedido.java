@@ -64,8 +64,9 @@ public class ModelPedido extends AbstractTableModel {
     
     public static void atendido(int mesa) {
         for (int i = 0; i < pedidos.size(); i++) {
-            if ( pedidos.get(i).getMesa() == mesa) {
+            if ( pedidos.get(i).getMesa() == mesa && pedidos.get(i).isSituacao() == false) {
                 pedidos.get(i).setSituacao(true);
+                break;
             }
         }
     }
@@ -74,6 +75,7 @@ public class ModelPedido extends AbstractTableModel {
         for (int i = 0; i < pedidos.size(); i++) {
             if ( pedidos.get(i).isSituacao() == true) {
                 pedidos.remove(i);
+                i--;
             }
         }
     } 

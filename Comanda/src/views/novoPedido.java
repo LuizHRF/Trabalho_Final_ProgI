@@ -2,6 +2,7 @@ package views;
 
 import entities.Pedido;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import models.ModelPedido;
 import models.ModelProduto;
 
@@ -254,6 +255,14 @@ public class novoPedido extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         double valor = ModelProduto.getValor((String)cbEntrada.getSelectedItem()) + ModelProduto.getValor((String)cbPrincipal.getSelectedItem()) + ModelProduto.getValor((String)cbSobremesa.getSelectedItem()) + ModelProduto.getValor((String)cbBebida.getSelectedItem()) ;
         
+        if (Integer.parseInt(spMesa.getValue().toString()) < 0) {
+            JOptionPane.showMessageDialog(null, "Insira um valor de mesa válido!");
+            return;
+        } else if (edtAtendente.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Insira um atendente!");
+            return;
+        }
+        
         Pedido p = new Pedido(
                 edtAtendente.getText(),
                 Integer.parseInt(spMesa.getValue().toString()),
@@ -266,7 +275,6 @@ public class novoPedido extends javax.swing.JFrame {
         );
         ModelPedido.getPedidos().add(p);
         this.btnVoltarActionPerformed(evt);
-        
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void cbPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPrincipalActionPerformed
